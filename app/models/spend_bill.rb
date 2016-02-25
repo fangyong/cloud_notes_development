@@ -1,0 +1,2 @@
+class SpendBill < Bill
+end
