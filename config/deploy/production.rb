@@ -1,4 +1,3 @@
-set :deploy_to, "/Users/fangyong/rails_release_app/"
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -50,13 +49,13 @@ set :deploy_to, "/Users/fangyong/rails_release_app/"
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+server '192.168.2.102',
+  user: 'fangyong',
+  roles: %w{web app}
+  # ssh_options: {
+  #   user: 'fangyong', # overrides user setting above
+  #   keys: %w(/Users/fangyong/.ssh/id_rsa),
+  #   forward_agent: false,
+  #   auth_methods: %w(publickey password)
+  #   # password: 'please use keys'
+  # }
