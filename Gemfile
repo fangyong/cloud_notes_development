@@ -31,6 +31,8 @@ gem 'mongoid', '~> 5.0.0.beta'
 
 gem 'kaminari'
 
+gem "thin"
+
 group :development do
   gem "capistrano", "~> 3.4"
 end
