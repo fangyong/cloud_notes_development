@@ -49,9 +49,9 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-server '192.168.2.102',
-  user: 'fangyong',
-  roles: %w{web app}
+server '112.74.125.52',
+  user: 'root',
+  roles: %w{web}
   # ssh_options: {
   #   user: 'fangyong', # overrides user setting above
   #   keys: %w(/Users/fangyong/.ssh/id_rsa),
