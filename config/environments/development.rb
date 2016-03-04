@@ -34,4 +34,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+     :address => "smtp.exmal.qq.com",
+     :port => 465,
+     :domain => "hsltech.com",
+     :authentication => :login,
+     :tls => true,
+     :user_name => "fangyong@hsltech.com", #你的邮箱
+     :password => "vin15car" #你的密码
+   }
 end
