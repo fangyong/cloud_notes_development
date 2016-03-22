@@ -7,4 +7,8 @@ class Bill
 	field :time,             type:DateTime       #时间
 
 	belongs_to :user
+
+	def sche
+		puts "asnyc task running..."
+	end
 end

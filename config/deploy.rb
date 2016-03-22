@@ -8,9 +8,11 @@ set :repo_url, 'git@github.com:fangyong/cloud_notes_development.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/app/service/cloud_notes_development'
+#set :deploy_to, '/app/service/cloud_notes_development'
+set :deploy_to, '/home/ubuntu/app/service/cloud_notes_development'
 
-role :web, "112.74.125.52"
+# role :web, "112.74.125.52"
+role :web, "52.35.19.25"
 
 set :deploy_via, :remote_cache
 

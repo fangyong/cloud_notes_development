@@ -1,6 +1,10 @@
 # source 'https://rubygems.org'
 source 'https://ruby.taobao.org'
 
+gem 'execjs'
+
+gem 'therubyracer'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use SCSS for stylesheets
@@ -32,6 +36,8 @@ gem 'kaminari'
 gem "thin"
 
 gem 'devise'
+
+gem 'whenever'
 
 group :development do
   gem "capistrano", "~> 3.4"
