@@ -1,2 +1,0 @@
-class SpendBill < Bill
-end

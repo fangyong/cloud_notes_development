@@ -5,15 +5,9 @@ Rails.application.routes.draw do
   root :to=>'home#index'
 
   resources :users
-  resources :bills
-  resources :comments do 
+  resources :contacts do 
     collection do 
-      get 'comment' => 'comments#create'
-    end
-  end
-  resources :replies do 
-    collection do 
-      get 'reply' => 'replies#create'
+      post 'sync' => 'contacts#sync'
     end
   end
   #test

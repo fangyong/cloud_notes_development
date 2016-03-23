@@ -1,2 +1,0 @@
-class IncomeBill < Bill
-end
