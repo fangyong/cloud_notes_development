@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_filter :authenticate_user_from_token!
+	#需要正常的cookie认证的
 	before_filter :authenticate_user!
 
 	def index
