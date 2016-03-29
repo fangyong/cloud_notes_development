@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       post 'sync' => 'contacts#sync'
     end
   end
+
+  resources :cloud_files do 
+    collection do 
+      post 'upload' => 'cloud_files#upload'
+    end
+  end
   #test
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

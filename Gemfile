@@ -39,6 +39,8 @@ gem 'devise'
 
 gem 'whenever'
 
+gem 'uuid'
+
 group :development do
   gem "capistrano", "~> 3.4"
 end

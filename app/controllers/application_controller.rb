@@ -11,11 +11,8 @@ class ApplicationController < ActionController::Base
   # 获取http:/xxx.com/books.json?token=aMUj5kiyLbmZdjpr_iAu
   # 判断token的值是否存在，若存在且能在User表中找到相应的，就登录此用户
   def authenticate_user_from_token!
-    puts "authenticate"
     token = params[:token].presence
-    puts "token is #{token}"
     user = token && User.find_by(authentication_token:token.to_s)
-    puts "user is #{user}"
     if user
       sign_in user, store: false
     end

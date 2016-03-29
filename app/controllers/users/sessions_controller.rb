@@ -21,6 +21,8 @@ class Users::SessionsController < Devise::SessionsController
   
 	#注销就是更换用户token
 	def destroy
+		puts "destroy"
+		puts "#{current_user}"
 		current_user.authentication_token = Devise.friendly_token
 		sign_out(current_user)
 		render json: { success: true }

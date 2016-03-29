@@ -38,6 +38,7 @@ class User
   # field :locked_at,       type: Time
 
   has_many :contacts
+  has_many :cloud_files
 
   #token为空时自动生成新的token
   def ensure_authentication_token
