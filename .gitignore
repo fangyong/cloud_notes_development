@@ -20,6 +20,7 @@ public/assets/
 public/wifi/
 csv/*
 rsa/*
+files/*
 beacon_device/*
 operating_data_file/*
 /tmp
