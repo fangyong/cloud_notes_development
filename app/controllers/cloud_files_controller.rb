@@ -48,6 +48,7 @@ class CloudFilesController < ApplicationController
 		        f = CloudFile.new file_hash
 		        if f.save
 		        	user.cloud_files << f
+		        	File.delete(path)
 		        end
 		        respond_to do |format|
 		            format.json  { render :json => { :status => 1, :path => path_real} }
