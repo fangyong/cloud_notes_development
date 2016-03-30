@@ -38,6 +38,7 @@ class CloudFilesController < ApplicationController
 	                f.write(file.read)  
 	            end  
 	        end
+	        
 	        path_real = "https://s3-us-west-2.amazonaws.com/cloudfilestorage/#{filename}#{extension}"
 	        file_hash = {}
 	        file_hash["name"] = filename
