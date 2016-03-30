@@ -41,6 +41,8 @@ gem 'whenever'
 
 gem 'uuid'
 
+gem 'aws-sdk'
+
 group :development do
   gem "capistrano", "~> 3.4"
 end

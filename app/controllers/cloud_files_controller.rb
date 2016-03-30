@@ -38,17 +38,23 @@ class CloudFilesController < ApplicationController
 	                f.write(file.read)  
 	            end  
 	        end
-	        path_real = "http://52.35.19.25/files/#{filename}#{extension}"
+	        path_real = "https://s3-us-west-2.amazonaws.com/cloudfilestorage/#{filename}#{extension}"
 	        file_hash = {}
 	        file_hash["name"] = filename
 	        file_hash["path"] = path_real
-	        f = CloudFile.new file_hash
-	        if f.save
-	        	user.cloud_files << f
-	        end
-	        respond_to do |format|
-	            format.json  { render :json => { :status => 1, :path => path_real} }
-	        end
+	        client = Aws::S3::Client.new(access_key_id: "AKIAIQGIA5QGLJ5MMYSA", secret_access_key: "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")
+	        resource = Aws::S3::Resource.new(client: client)
+	        if resource.bucket("cloudfilestorage").object("#{filename}#{extension}").upload_file("files/#{filename}#{extension}")
+		        f = CloudFile.new file_hash
+		        if f.save
+		        	user.cloud_files << f
+		        end
+		        respond_to do |format|
+		            format.json  { render :json => { :status => 1, :path => path_real} }
+		        end
+		    else
+		    	raise "Service sync error!"
+		    end
     	rescue Exception => e
     		@error = e.to_s
 			respond_to do |format|
