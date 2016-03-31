@@ -1,23 +1,27 @@
 class CloudFilesController < ApplicationController
 
-	skip_before_filter :verify_authenticity_token, :all
- 	skip_before_filter :authenticate_user!, :all
+	# skip_before_filter :verify_authenticity_token, :all
+ 	# skip_before_filter :authenticate_user!, :all
 
  	include UuidTool
 
 	def index
 		begin
-			user = User.find(params[:user_id])
+			# puts "#{current_user}"
+			user = current_user
 			unless user
 				raise "User was not found!"
 			end
-			files = user.files
+			@files = user.cloud_files
 			respond_to do |format|
-				format.json { render :json => { :status => 1, :data => files } }
+				format.html { render :index }
+				format.json { render :json => { :status => 1, :data => @files } }
 			end
 		rescue Exception => e 
+			@error = e.to_s
 			respond_to do |format|
-				format.json { render :json => { :status => 0, :err_msg => e.to_s } }
+				format.html { render :index }
+				format.json { render :json => { :status => 0, :err_msg => @error } }
 			end
 		end
 	end
@@ -38,7 +42,7 @@ class CloudFilesController < ApplicationController
 	                f.write(file.read)  
 	            end  
 	        end
-	        
+
 	        path_real = "https://s3-us-west-2.amazonaws.com/cloudfilestorage/#{filename}#{extension}"
 	        file_hash = {}
 	        file_hash["name"] = filename

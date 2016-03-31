@@ -50,7 +50,7 @@
 # The server-based syntax can be used to override options:
 # ------------------------------------
 server '52.35.19.25',
-  user: 'ubuntu',
+  user: 'root',
   roles: %w{web}
   # ssh_options: {
   #   user: 'fangyong', # overrides user setting above
