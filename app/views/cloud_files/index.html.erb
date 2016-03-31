@@ -1,0 +1,10 @@
+<% if @error %>
+	<%=@error %>
+<% else %>
+	<table border="0">
+		<tr><th>文件路径</th><th>创建时间</th></tr>
+		<% @files.each do |file| %>
+			<tr><td><a href=""+<%=file.path%>+"" ><%=file.name %></a></td><td><%=file.created_at %></td></tr>
+		<% end %>
+	</table>
+<% end %>
