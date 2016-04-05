@@ -7,4 +7,9 @@
 			<tr><td><a href=""+<%=file.path%>+"" ><%=file.name %></a></td><td><%=file.created_at %></td></tr>
 		<% end %>
 	</table>
+
+	<form action="cloud_files/upload" >
+		<input type="file" multiple="" class="keyvalueeditor-value keyvalueeditor-value-file" placeholder="Value" name="file" value="file">
+		<input type="submit"/>
+	</form>
 <% end %>

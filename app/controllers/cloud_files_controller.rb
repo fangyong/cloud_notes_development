@@ -1,13 +1,12 @@
 class CloudFilesController < ApplicationController
 
-	# skip_before_filter :verify_authenticity_token, :all
- 	# skip_before_filter :authenticate_user!, :all
+	skip_before_filter :verify_authenticity_token, :all
+ 	skip_before_filter :authenticate_user!, :all
 
  	include UuidTool
 
 	def index
 		begin
-			# puts "#{current_user}"
 			user = current_user
 			unless user
 				raise "User was not found!"
@@ -28,7 +27,11 @@ class CloudFilesController < ApplicationController
 
 	def upload
 		begin
-			user = User.find(params[:user_id])
+
+			puts "#{params.to_s}"
+			# puts "#{params[:file]}"
+			user = User.find("56fb9ba133da9e24d7000007")
+			# user = current_user
 			unless user
 				raise "User was not found!"
 			end
@@ -56,6 +59,7 @@ class CloudFilesController < ApplicationController
 		        	File.delete(path)
 		        end
 		        respond_to do |format|
+		        	format.html  { render :index }
 		            format.json  { render :json => { :status => 1, :path => path_real} }
 		        end
 		    else

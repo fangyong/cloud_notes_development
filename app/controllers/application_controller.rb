@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
    # 因为用作API，所以关闭防CSRF不然会出问题
   protect_from_forgery with: :null_session
 
+  before_filter :authenticate_user!
+
   private
 
   # 获取http:/xxx.com/books.json?token=aMUj5kiyLbmZdjpr_iAu
